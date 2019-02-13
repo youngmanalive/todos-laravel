@@ -23,6 +23,14 @@ Route::get('/manage', function () {
     return view('manage');
 });
 
+Route::get('/new', function () {
+    return view('new');
+});
+
+Route::get('/sample', function () {
+    return view('sample');
+});
+
 Route::get('/app', function () {
     return view('app');
 });
