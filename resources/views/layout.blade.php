@@ -8,6 +8,7 @@
     
     .nav { color: white; }
     .nav * { color: inherit; }
+    .fill { height: 90vh; }
 
   </style>
   <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
@@ -15,7 +16,7 @@
 <body>
   <nav class="navbar navbar-dark bg-primary">
     <div class="container">
-      <h1 class="text-white">Todos!</h1>
+      <span class="navbar-brand font-weight-bold">Todos!</span>
       <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/manage">Manage</a></li>
@@ -26,7 +27,7 @@
       </ul>
     </div>
   </nav>
-  <div class="container pt-4">
+  <div class="container pt-4 fill">
     @yield('content')
   </div>
 </body>
