@@ -16,3 +16,8 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+
+Artisan::command('hello', function () {
+    $this->comment('Hi there, you\'re doing great!');
+})->describe('Just checking in');
