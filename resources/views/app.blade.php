@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todos - App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body>
-  <h1>Todos!</h1>
-  <a href="/">Home</a>
-  <h2>This will be the React/SPA part!</h2>
+  <div id="root"></div>
 </body>
 </html>
