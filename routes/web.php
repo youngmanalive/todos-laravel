@@ -11,24 +11,21 @@
 |
 */
 
-Route::get('/', 'TodosController@index');
 
+Route::get('/', 'TodosController@index');
+Route::post('/', 'TodosController@store');
+Route::get('/todos/new', 'TodosController@create');
+Route::get('/todos/{id}', 'TodosController@show');
+Route::get('/todos/{id}/edit', 'TodosController@edit');
+Route::patch('/todos/{id}', 'TodosController@update');
+Route::delete('/{id}', 'TodosController@destroy');
+
+// Route::get('/manage/{id}/edit', 'TodosController@edit');
 Route::get('/about', function () {
     return view('about');
-});
-
-Route::get('/manage', function () {
-    return view('manage');
-});
-
-Route::get('/new', function () {
-    return view('new');
-});
-
-Route::get('/sample', function () {
-    return view('sample');
 });
 
 Route::get('/app', function () {
     return view('app');
 });
+
