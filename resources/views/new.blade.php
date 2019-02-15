@@ -18,7 +18,7 @@
                         <label for="desc">Description</label>
                         <textarea name="description" class="form-control" id="desc" rows=4 maxlength="200"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary rounded">Submit</button>
                 </form>
             </div>
         </div>
