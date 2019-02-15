@@ -15,7 +15,9 @@
                         <div>
                             <a href="/todos/{{ $todo->id }}/edit" class="btn btn-sm btn-outline-primary rounded ml-2">Edit</a>
                         </div>
-                        <form method="GET" action="/todos/{{ $todo->id }}">
+                        <form method="POST" action="/todos/{{ $todo->id }}">
+                            {{ csrf_field() }}
+                            {{ method_field("DELETE") }}
                             <input class="btn btn-outline-danger btn-sm rounded ml-2" type="submit" value="Delete">
                         </form>
 

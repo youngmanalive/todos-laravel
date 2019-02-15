@@ -47,7 +47,9 @@ class TodosController extends Controller
 
     public function destroy($id)
     {
-        return dd("You are destroying ID: $id!");
+        Todo::find($id)->delete();
+
+        return redirect('/');
     }
 
     public function update($id)
@@ -60,6 +62,6 @@ class TodosController extends Controller
 
         $todo->save();
         
-        return redirect("/todos/$id");
+        return redirect('/');
     }
 }

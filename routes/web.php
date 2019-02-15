@@ -18,7 +18,7 @@ Route::get('/todos/new', 'TodosController@create');
 Route::get('/todos/{id}', 'TodosController@show');
 Route::get('/todos/{id}/edit', 'TodosController@edit');
 Route::patch('/todos/{id}', 'TodosController@update');
-Route::delete('/{id}', 'TodosController@destroy');
+Route::delete('/todos/{id}', 'TodosController@destroy');
 
 Route::get('/about', function () {
     return view('about');
