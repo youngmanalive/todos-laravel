@@ -10,7 +10,7 @@
         <li>PHP (Laravel)</li>
         <li>Blade</li>
         <li>MySQL</li>
-        <li>CSS</li>
+        <li>BootstrapCSS</li>
     </ul>
     <h3>Single Page:</h3>
     <ul>
