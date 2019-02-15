@@ -20,7 +20,6 @@ Route::get('/todos/{id}/edit', 'TodosController@edit');
 Route::patch('/todos/{id}', 'TodosController@update');
 Route::delete('/{id}', 'TodosController@destroy');
 
-// Route::get('/manage/{id}/edit', 'TodosController@edit');
 Route::get('/about', function () {
     return view('about');
 });
