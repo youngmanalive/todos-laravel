@@ -5,7 +5,7 @@
 @section('content')
     <h1>New</h1>
     <div class="container p-4">
-        <div class="card w-50">
+        <div class="card">
             <span class="card-header">Add a Todo!</span>
             <div class="container p-4">
                 <form method="POST" action="/">
