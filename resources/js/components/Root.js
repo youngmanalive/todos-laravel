@@ -1,10 +1,32 @@
 import React from 'react';
+import { observer, inject } from "mobx-react";
 
-const Root = () => (
-  <div>
-    <h1>React is up and running!</h1>
-    <a href="/">Home</a>
-  </div>
-);
+@inject(['TodosStore'])
+@observer
+class Root extends React.Component {
+  addTodo = () => {
+    this.props.TodosStore.addTodo({
+      title: "Another todo"
+    });
+  }
+
+  render() {
+    const { todos } = this.props.TodosStore;
+    
+    return (
+      <div>
+        <button onClick={this.addTodo}>Add Todo</button>
+        <ul>
+          {
+            todos.map(({ title }, i) => (
+              <li key={i}>{title}</li>
+            ))
+          }
+        </ul>
+        <a href="/">Home</a>
+      </div>
+    );
+  }
+}
 
 export default Root;
