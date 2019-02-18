@@ -4,26 +4,59 @@ import { observer, inject } from "mobx-react";
 @inject(['TodosStore'])
 @observer
 class Root extends React.Component {
-  addTodo = () => {
-    this.props.TodosStore.addTodo({
-      title: "Another todo"
-    });
+  state = {
+    title: "",
+    description: ""
+  }
+
+  componentDidMount() {
+    this.props.TodosStore.fetchTodos();
+  }
+
+  handleNew = e => {
+    e.preventDefault();
+    this.props.TodosStore.addTodo(this.state)
+      .then(() => this.setState({ title: "", description: "" }));
+  }
+
+  handleDelete = id => {
+    this.props.TodosStore.deleteTodo(id);
+  }
+
+  toggleTodo = todo => {
+    this.props.TodosStore.updateTodo(todo);
+  }
+
+  updateField = field => e => {
+    this.setState({ [field]: e.currentTarget.value });
   }
 
   render() {
-    const { todos } = this.props.TodosStore;
+    const { todoList } = this.props.TodosStore;
     
     return (
       <div>
-        <button onClick={this.addTodo}>Add Todo</button>
+        <a href="/">Home</a>
+        <form onSubmit={this.handleNew}>
+          <div><input type="text" onChange={this.updateField('title')} value={this.state.title}/></div>
+          <div><input type="text" onChange={this.updateField('description')} value={this.state.description}/></div>
+          <div><input type="submit" value="Add Todo"/></div>
+        </form>
         <ul>
           {
-            todos.map(({ title }, i) => (
-              <li key={i}>{title}</li>
+            todoList.map(todo => (
+              <li key={todo.id}>
+                <div>
+                  <h1>{todo.title}</h1>
+                  <h4>Completed: {todo.completed ? 'true' : 'false'}</h4>
+                  <p>{todo.description}</p>
+                  <button onClick={() => this.handleDelete(todo.id)}>Delete</button>
+                  <button onClick={() => this.toggleTodo(todo)}>Toggle</button>
+                </div>
+              </li>
             ))
           }
         </ul>
-        <a href="/">Home</a>
       </div>
     );
   }
