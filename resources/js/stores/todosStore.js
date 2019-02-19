@@ -5,9 +5,17 @@ class TodosStore {
   @observable todos = {};
   todosAPI = new TodosAPI;
 
-  @computed get todoList() {
+  @computed get allTodos() {
     return Object.values(this.todos);
-  };
+  }
+
+  @computed get completeTodos() {
+    return Object.values(this.todos).filter(todo => todo.completed);
+  }
+
+  @computed get incompleteTodos() {
+    return Object.values(this.todos).filter(todo => !todo.completed);
+  }
 
   @action fetchTodos = () =>
     this.todosAPI.fetchTodos()
