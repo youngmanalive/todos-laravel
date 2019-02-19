@@ -25,7 +25,10 @@
         "sass-loader": "^7.1.0"
     },
     "dependencies": {
+        "@emotion/core": "^10.0.7",
+        "@emotion/styled": "^10.0.7",
         "mobx": "^5.9.0",
-        "mobx-react": "^5.4.3"
+        "mobx-react": "^5.4.3",
+        "react-modal": "^3.8.1"
     }
 }
